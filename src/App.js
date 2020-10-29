@@ -4,8 +4,12 @@ import qBank from './Trivia_Data.json';
 export default function App() {
   const [currentQ, setCurrentQ] = useState(0);
   const [showScore, setShowScore] = useState(false);
+  const [score, setScore] = useState(0);
 
   const handleAnswerClick = (answerOption) => {
+    if (answerOption === qBank[currentQ].correct) {
+      setScore(score + 1);
+    }
     const nextQ = currentQ + 1;
     if (nextQ < 10) {
       setCurrentQ(nextQ);
@@ -17,7 +21,7 @@ export default function App() {
   return (
 		<div className='app'>
       {showScore ? (
-				<div className='score-section'>You scored _ out of 10</div>
+				<div className='score-section'>You scored {score} out of 10</div>
 			) : (
 				<>
 					<div className='question-section'>
@@ -28,7 +32,7 @@ export default function App() {
 					</div>
 					<div className='answer-section'>
             {qBank[currentQ].incorrect.concat(qBank[currentQ].correct).map((answerOption, index) => (
-              <button onClick={() => handleAnswerClick()}>{answerOption}</button>
+              <button onClick={() => handleAnswerClick(answerOption)}>{answerOption}</button>
             ))}
 					</div>
 				</>
