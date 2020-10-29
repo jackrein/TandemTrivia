@@ -5,4 +5,23 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: #ffffff;
+  background-color: #fff4e5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.app {
+  background-color: #2c4023;
+  width: 450px;
+  min-height: 200px;
+  height: min-content;
+  padding: 20px;
+  display: flex;
+}
+
+button {
+  color: black;
 }
