@@ -1,14 +1,14 @@
 import React from 'react';
+import qBank from './Trivia_Data.json';
 
 export default function App() {
   return (
 		<div className='app'>
-      <div className='question-text'>This is where the question text will go</div>
+      <div className='question-text'>{qBank[0].question}</div>
       <div className='answer-section'>
-        <button>Answer 1</button>
-        <button>Answer 2</button>
-        <button>Answer 3</button>
-        <button>Answer 4</button>
+        {qBank[0].incorrect.concat(qBank[0].correct).map((answerOption, index) => (
+		      <button>{answerOption}</button>
+      	))}
       </div>
     </div>
   );
