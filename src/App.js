@@ -8,8 +8,12 @@ export default function App() {
   const [score, setScore] = useState(0);
 
   const handleAnswerClick = (answerOption) => {
-    if (answerOption === qBank[currentQ].correct) {
+    let rightAnswer = qBank[currentQ].correct;
+    if (answerOption === rightAnswer) {
       setScore(score + 1);
+      alert('That\'s correct!');
+    } else {
+      alert('I\'m sorry, the correct answer is ' + rightAnswer);
     }
     const nextQ = currentQ + 1;
     if (nextQ < 10) {

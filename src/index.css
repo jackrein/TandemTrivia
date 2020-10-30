@@ -84,3 +84,12 @@ button {
 button:hover {
   background-color: #f6f1f0;
 }
+
+.score-section {
+  display: flex;
+  font-size: 24px;
+  align-items: center;
+  font-family: Apercu-Mono;
+  margin-left: auto;
+  margin-right: auto;
+}
