@@ -83,13 +83,27 @@ button {
 
 button:hover {
   background-color: #ff2;
+  font-size: 18px;
 }
 
+/* SCORE SECTION */
 .score-section {
-  display: flex;
+  display: block;
   font-size: 24px;
-  align-items: center;
+  align-self: center;
   font-family: Apercu-Mono;
   margin-left: auto;
   margin-right: auto;
+}
+
+#playBtn {
+  display: block;
+  width: 100px;
+  margin-top: 25px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#playBtn:hover {
+  padding: 7px;
 }

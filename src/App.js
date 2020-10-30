@@ -7,6 +7,7 @@ export default function App() {
   const [currentQ, setCurrentQ] = useState(0);
   const [showScore, setShowScore] = useState(false);
   const [score, setScore] = useState(0);
+  const answers = questions[currentQ].incorrect.concat(questions[currentQ].correct);
 
   const handleAnswerClick = (answerOption) => {
     let rightAnswer = questions[currentQ].correct;
@@ -29,7 +30,10 @@ export default function App() {
       <img className='logo' alt='Tandem Trivia logo' src={logo} />
       <div className='app'>
         {showScore ? (
-          <div className='score-section'>You scored {score} out of 10</div>
+          <div className='score-section'>
+            <div>You scored {score} out of 10</div>
+            <button id='playBtn'>Play Again</button>
+          </div>
         ) : (
           <>
             <div className='question-section'>
@@ -39,7 +43,7 @@ export default function App() {
               <div className='qText'>{questions[currentQ].question}</div>
             </div>
             <div className='answer-section'>
-              {questions[currentQ].incorrect.concat(questions[currentQ].correct).map((answerOption, index) => (
+              {answers.sort(() => 0.5 - Math.random()).map((answerOption, index) => (
                 <button onClick={() => handleAnswerClick(answerOption)}>{answerOption}</button>
               ))}
             </div>
