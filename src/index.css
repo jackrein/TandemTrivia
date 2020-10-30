@@ -15,7 +15,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #ffffff;
+  color: #fff4e5;
   background-color: #fff4e5;
   display: flex;
   justify-content: center;
@@ -54,7 +54,7 @@ body {
 }
 
 .qText {
-  margin-top: 10px;
+  margin-top: 45px;
 }
 
 /* ANSWER SECTION */
@@ -68,21 +68,21 @@ body {
 button {
   width: 100%;
   font-size: 16px;
-  color: black;
-  background-color: #ff2;
+  color: #2c4023;
+  background-color: #f6f1f0;
   border-radius: 15px;
   display: flex;
   padding: 10px;
   justify-content: flex-start;
   align-items: center;
-  border: 3px solid #f6f1f0;
+  border: 3px solid #ff2;
   cursor: pointer;
   font-family: Apercu-Light;
   font-weight: bold;
 }
 
 button:hover {
-  background-color: #f6f1f0;
+  background-color: #ff2;
 }
 
 .score-section {
