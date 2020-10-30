@@ -75,7 +75,7 @@ button {
   padding: 10px;
   justify-content: flex-start;
   align-items: center;
-  border: 3px solid #ff2;
+  border: 3px outset #ff2;
   cursor: pointer;
   font-family: Apercu-Light;
   font-weight: bold;
@@ -83,7 +83,7 @@ button {
 
 button:hover {
   background-color: #ff2;
-  font-size: 18px;
+  border: 3px inset #ff2;
 }
 
 /* SCORE SECTION */
@@ -102,8 +102,4 @@ button:hover {
   margin-top: 25px;
   margin-left: auto;
   margin-right: auto;
-}
-
-#playBtn:hover {
-  padding: 7px;
 }

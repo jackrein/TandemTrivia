@@ -25,6 +25,13 @@ export default function App() {
     }
   };
 
+  const restartGame = () => {
+    getQuestions(qBank.sort(() => 0.5 - Math.random()).slice(0, 10));
+    setScore(0);
+    setShowScore(false);
+    setCurrentQ(0);
+  };
+
   return (
     <>
       <img className='logo' alt='Tandem Trivia logo' src={logo} />
@@ -32,7 +39,7 @@ export default function App() {
         {showScore ? (
           <div className='score-section'>
             <div>You scored {score} out of 10</div>
-            <button id='playBtn'>Play Again</button>
+            <button id='playBtn' onClick={() => restartGame()}>Play Again</button>
           </div>
         ) : (
           <>
@@ -44,7 +51,7 @@ export default function App() {
             </div>
             <div className='answer-section'>
               {answers.sort(() => 0.5 - Math.random()).map((answerOption, index) => (
-                <button onClick={() => handleAnswerClick(answerOption)}>{answerOption}</button>
+                  <button onClick={() => handleAnswerClick(answerOption)}>{answerOption}</button>
               ))}
             </div>
           </>
