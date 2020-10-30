@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import qBank from './Trivia_Data.json';
+import logo from './TandemTrivia Logo.png'
 
 export default function App() {
   const [currentQ, setCurrentQ] = useState(0);
@@ -19,24 +20,27 @@ export default function App() {
   };
 
   return (
-		<div className='app'>
-      {showScore ? (
-				<div className='score-section'>You scored {score} out of 10</div>
-			) : (
-				<>
-					<div className='question-section'>
-						<div className='qCount'>
-							Question {currentQ+1}/10
-						</div>
-            <div className='qText'>{qBank[currentQ].question}</div>
-					</div>
-					<div className='answer-section'>
-            {qBank[currentQ].incorrect.concat(qBank[currentQ].correct).map((answerOption, index) => (
-              <button onClick={() => handleAnswerClick(answerOption)}>{answerOption}</button>
-            ))}
-					</div>
-				</>
-			)}
-    </div>
+    <>
+      <img className='logo' alt='Tandem Trivia logo' src={logo} />
+      <div className='app'>
+        {showScore ? (
+          <div className='score-section'>You scored {score} out of 10</div>
+        ) : (
+          <>
+            <div className='question-section'>
+              <div className='qCount'>
+                <span>Question {currentQ+1}</span>/10
+              </div>
+              <div className='qText'>{qBank[currentQ].question}</div>
+            </div>
+            <div className='answer-section'>
+              {qBank[currentQ].incorrect.concat(qBank[currentQ].correct).map((answerOption, index) => (
+                <button onClick={() => handleAnswerClick(answerOption)}>{answerOption}</button>
+              ))}
+            </div>
+          </>
+        )}
+      </div>
+    </>
   );
 }
