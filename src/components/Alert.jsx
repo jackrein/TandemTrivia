@@ -1,18 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-function Alert(props) {
+export default function Alert({ rightAnswer, skipTimeout }) {
   return (
     <>
       <div className='alert' id='alertRight'>
-        <span className='closeBtn' onClick={() => props.skipTimeout()}>&times;</span>
+        <span className='closeBtn' onClick={() => skipTimeout()}>&times;</span>
         That's correct!
       </div>
       <div className='alert' id='alertWrong'>
-        <span className='closeBtn' onClick={() => props.skipTimeout()}>&times;</span>
-        I'm sorry, the correct answer is: {props.rightAnswer}
+        <span className='closeBtn' onClick={() => skipTimeout()}>&times;</span>
+        I'm sorry, the correct answer is: {rightAnswer}
       </div>
     </>
   );
 }
-
-export default Alert;
