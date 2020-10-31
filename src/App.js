@@ -7,14 +7,14 @@ export default function App() {
   const [currentQ, setCurrentQ] = useState(0);
   const [showScore, setShowScore] = useState(false);
   const [score, setScore] = useState(0);
-  const answers = questions[currentQ].incorrect.concat(questions[currentQ].correct);
   const rightAnswer = questions[currentQ].correct;
+  const answers = questions[currentQ].incorrect.concat(rightAnswer).sort(() => 0.5 - Math.random());
   let timer;
 
   const handleAnswerClick = (answerOption) => {
     if (answerOption === rightAnswer) {
-      setScore(score + 1);
       document.getElementById('alertRight').style.display='block';
+      // setScore(score + 1);  // causing qCard to re-render & shuffle answers onClick
     } else {
       document.getElementById('alertWrong').style.display='block';
     }
@@ -62,7 +62,7 @@ export default function App() {
               <div className='qText'>{questions[currentQ].question}</div>
             </div>
             <div className='answer-section'>
-              {answers.sort(() => 0.5 - Math.random()).map((answerOption, index) => (
+              {answers.map((answerOption, index) => (
                   <button onClick={() => handleAnswerClick(answerOption)}>{answerOption}</button>
               ))}
             </div>
