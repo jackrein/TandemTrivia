@@ -103,3 +103,32 @@ button:hover {
   margin-left: auto;
   margin-right: auto;
 }
+
+/* ALERT BOX */
+.alert {
+  padding: 20px;
+  background-color: green;
+  color: #fff4e5;
+  margin: 20px 0;
+  border-radius: 15px;
+  font-family: Apercu-Light;
+  display: none;
+}
+
+#alertWrong {
+  background-color: red;
+}
+
+.closeBtn {
+  margin-left: 15px;
+  color: #fff4e5;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+}
+
+.closeBtn:hover {
+  font-size: 25px;
+}

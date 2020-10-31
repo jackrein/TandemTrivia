@@ -8,21 +8,33 @@ export default function App() {
   const [showScore, setShowScore] = useState(false);
   const [score, setScore] = useState(0);
   const answers = questions[currentQ].incorrect.concat(questions[currentQ].correct);
+  const rightAnswer = questions[currentQ].correct;
+  let timer;
 
   const handleAnswerClick = (answerOption) => {
-    let rightAnswer = questions[currentQ].correct;
     if (answerOption === rightAnswer) {
       setScore(score + 1);
-      alert('That\'s correct!');
+      document.getElementById('alertRight').style.display='block';
     } else {
-      alert('I\'m sorry, the correct answer is ' + rightAnswer);
+      document.getElementById('alertWrong').style.display='block';
     }
+    timer = setTimeout(changeQ, 5000);
+  };
+
+  const changeQ = () => {
+    document.getElementById('alertRight').style.display='none';
+    document.getElementById('alertWrong').style.display='none';
     const nextQ = currentQ + 1;
     if (nextQ < questions.length) {
       setCurrentQ(nextQ);
     } else {
       setShowScore(true);
     }
+  };
+
+  const skipTimeout = () => {
+    clearTimeout(timer);
+    changeQ();
   };
 
   const restartGame = () => {
@@ -56,6 +68,14 @@ export default function App() {
             </div>
           </>
         )}
+      </div>
+      <div className='alert' id='alertRight'>
+        <span className='closeBtn' onClick={() => skipTimeout()}>&times;</span>
+        That's correct!
+      </div>
+      <div className='alert' id='alertWrong'>
+        <span className='closeBtn' onClick={() => skipTimeout()}>&times;</span>
+        I'm sorry, the correct answer is: {rightAnswer}
       </div>
     </>
   );
