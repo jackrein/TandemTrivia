@@ -11,3 +11,11 @@ Create an application that displays trivia questions with multiple-choice answer
 * The correct answer must be revealed after a user has submitted their answer
 * Score does not need to update in real time, but must be shown at end of round
 * Results can update on any interaction you choose (e.g. form submit, button click)
+
+# Known Issues
+* Question card re-renders upon selection of correct answer, potentially shuffling answer choices on-screen while displaying "That's correct!" alert.
+* Last test ("restarts game and renders new Question 1") does not pass as written.
+* Not enough tests!
+
+# To Play
+Clone repo, run "npm install" then "npm start"

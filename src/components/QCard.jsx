@@ -11,7 +11,7 @@ export default function QCard({ answers, currentQ, questions, handleAnswerClick 
       </div>
       <div className='answer-section'>
         {answers.map((answerOption, index) => (
-            <button onClick={() => handleAnswerClick(answerOption)}>{answerOption}</button>
+            <button key={index} onClick={() => handleAnswerClick(answerOption)}>{answerOption}</button>
         ))}
       </div>
     </>

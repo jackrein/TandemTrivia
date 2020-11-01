@@ -28,11 +28,7 @@ export default function App() {
     document.getElementById('alertRight').style.display='none';
     document.getElementById('alertWrong').style.display='none';
     const nextQ = currentQ + 1;
-    if (nextQ < questions.length) {
-      setCurrentQ(nextQ);
-    } else {
-      setShowScore(true);
-    }
+    nextQ < questions.length ? setCurrentQ(nextQ) : setShowScore(true);
   };
     
   const skipTimeout = () => {

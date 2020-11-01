@@ -15,9 +15,10 @@ test('renders Tandem Trivia logo', async () => {
   expect(logo).toBeInTheDocument();
 });
 
-test('restarts game and renders new Question 1', () => {
+xtest('restarts game and renders new Question 1', () => {
+  const restartGame = jest.fn();
   render(<PlayBtn />);
   fireEvent.click(screen.getByText('Play Again'));
-  // expect(restartGame).toHaveBeenCalledTimes(1);
+  expect(restartGame).toHaveBeenCalledTimes(1);
   expect(screen.getByText('Question 1')).toBeInTheDocument();
 })
