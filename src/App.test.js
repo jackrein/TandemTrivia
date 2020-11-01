@@ -1,9 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-import { restartGame } from './App';
+import { render, fireEvent, screen } from '@testing-library/react';
 import App from './App';
+import PlayBtn from './components/PlayBtn';
 
 test('renders without crashing', () => {
   const div = document.createElement('div');
@@ -17,8 +16,8 @@ test('renders Tandem Trivia logo', async () => {
 });
 
 test('restarts game and renders new Question 1', () => {
-  render(<App />);  // Need to refactor with PlayBtn as component
-  userEvent.click(screen.getByText('Play Again'));
-  expect(restartGame).toHaveBeenCalledTimes(1);
-  expect(screen.getByText(/Question 1/i)).toBeInTheDocument();
+  render(<PlayBtn />);
+  fireEvent.click(screen.getByText('Play Again'));
+  // expect(restartGame).toHaveBeenCalledTimes(1);
+  expect(screen.getByText('Question 1')).toBeInTheDocument();
 })

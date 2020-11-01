@@ -17,7 +17,7 @@ export default function App() {
   const handleAnswerClick = (answerOption) => {
     if (answerOption === rightAnswer) {
       document.getElementById('alertRight').style.display='block';
-      // setScore(score + 1);  // causing qCard to re-render & shuffle answers onClick
+      setScore(score + 1);  // causing qCard to re-render & shuffle answers onClick
     } else {
       document.getElementById('alertWrong').style.display='block';
     }
@@ -52,11 +52,12 @@ export default function App() {
       <img className='logo' alt='Tandem Trivia logo' src={logo} />
       <div className='app'>
         {showScore ? (
-          <ScoreCard score={score}/>) : (
+          <ScoreCard score={score} restartGame={restartGame} />
+          ) : (
           <QCard answers={answers} currentQ={currentQ} questions={questions} handleAnswerClick={handleAnswerClick}/>
         )}
       </div>
       <Alert rightAnswer={rightAnswer} skipTimeout={skipTimeout} />
     </>
   );
-}
+};

@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
+import PlayBtn from './PlayBtn';
 
-export default function ScoreCard(props) {
+export default function ScoreCard({ score, restartGame }) {
   return(
     <div className='score-section'>
-      <div>You scored {props.score} out of 10</div>
-      <button id='playBtn' onClick={() => props.restartGame()}>Play Again</button>
+      <div>You scored {score} out of 10</div>
+      <PlayBtn restartGame={restartGame} />
     </div>
   );
 }
