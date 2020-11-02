@@ -21,7 +21,7 @@ export default function App() {
     } else {
       document.getElementById('alertWrong').style.display='block';
     }
-    timer = setTimeout(changeQ, 5000);
+    timer = setTimeout(changeQ, 3500);
   };
 
   const changeQ = () => {
