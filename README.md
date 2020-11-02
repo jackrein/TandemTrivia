@@ -18,4 +18,5 @@ Create an application that displays trivia questions with multiple-choice answer
 * Not enough tests!
 
 # To Play
-Clone repo, run "npm install" then "npm start"
+* Clone repo, run "npm install" then "npm start" OR
+* Open in browser at https://tandemtrivia.herokuapp.com/

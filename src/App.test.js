@@ -17,7 +17,7 @@ test('renders Tandem Trivia logo', async () => {
 
 xtest('restarts game and renders new Question 1', () => {
   const restartGame = jest.fn();
-  render(<PlayBtn />);
+  render(<PlayBtn onClick={restartGame} />);
   fireEvent.click(screen.getByText('Play Again'));
   expect(restartGame).toHaveBeenCalledTimes(1);
   expect(screen.getByText('Question 1')).toBeInTheDocument();
